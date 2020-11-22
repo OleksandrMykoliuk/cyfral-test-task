@@ -5,7 +5,7 @@
 -Bootstrap React
 -SASS (BEM)
 
-## Everything from the test task was implemented
+Everything from the test task was implemented
 
 ## Additionally implemented:
 -form validation
