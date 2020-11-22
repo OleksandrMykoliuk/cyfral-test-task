@@ -1,24 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
-import { Switch, Link, Route } from 'react-router-dom';
+import { LoginForm } from './components/LoginForm/LoginForm';
+import { RegistrationForm }
+  from './components/RegistrationForm/RegistrationForm';
+import { MainMenu } from './components/MainMenu/MainMenu';
 
-export const App = () => (
-  <div>
-    React starter pack
-    <div>
-      <nav className="nav">
-        <Link to="/">Home</Link>
-        <Link to="/users">Users</Link>
-      </nav>
+export const App = () => {
+  const [isLogined, setIsLogined] = useState(false);
+  const [needRegistration, setNeedRegistration] = useState(false);
+  const [newLogin, setNewLogin] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [currentUser, setCurrentUser] = useState('');
 
-      <Switch>
-        <Route path="/users">
-          <div>Users page</div>
-        </Route>
-        <Route path="/">
-          <div>Home page</div>
-        </Route>
-      </Switch>
+  return (
+    <div className="App">
+      {!isLogined
+      && !needRegistration
+      && (
+        <LoginForm
+          setIsLogined={setIsLogined}
+          setNewLogin={setNewLogin}
+          setNewPassword={setNewPassword}
+          setNeedRegistration={setNeedRegistration}
+          newLogin={newLogin}
+          newPassword={newPassword}
+          setCurrentUser={setCurrentUser}
+          currentUser={currentUser}
+        />
+      )}
+      {
+        !isLogined
+        && needRegistration
+        && (
+          <RegistrationForm
+            setIsLogined={setIsLogined}
+            setNeedRegistration={setNeedRegistration}
+            newLogin={newLogin}
+            newPassword={newPassword}
+            setCurrentUser={setCurrentUser}
+          />
+        )
+      }
+      {
+        isLogined
+      && (
+        <MainMenu
+          currentUser={currentUser}
+          setCurrentUser={setCurrentUser}
+        />
+      )
+      }
     </div>
-  </div>
-);
+  );
+};
