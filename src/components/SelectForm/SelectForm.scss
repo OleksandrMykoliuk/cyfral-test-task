@@ -1,0 +1,12 @@
+.SelectForm {
+
+  &__error {
+    position: absolute;
+    font-size: smaller;
+    color: red;
+  }
+
+  &__new-user {
+    margin-top: 30px;
+  }
+}
