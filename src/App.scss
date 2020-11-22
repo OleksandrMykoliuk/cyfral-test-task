@@ -1,8 +1,15 @@
-.nav {
-  display: flex;
-  margin: 20px;
+@import "~bootstrap/scss/bootstrap";
 
-  * {
-    margin-right: 10px;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: rgb(247, 247, 247);
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
